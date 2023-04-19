@@ -8,39 +8,30 @@
 </head>
 <body>
     <?php
+        require_once __DIR__ . './functions.php';
+
         if(isset($_GET['password'])){
             $lunghezzaPassword = $_GET['password'];
         }
 
         $letter='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $number='0123456789';
-        $symbol='./?!£$%&';
+        $symbol='._/?!£$&';
 
         $allCharacter= $letter . $number . $symbol;
         $arrayAllCharacter=str_split($allCharacter);
 
-        function createPassword($arrayAllCharacter,$lunghezzaPassword){
-            $password=[];
-
-            for($i = 0 ; $i < $lunghezzaPassword; $i++){
-                $randomNumber=rand(0,count($arrayAllCharacter));
-
-                foreach($arrayAllCharacter as $key => $character){
-                    if($randomNumber==$key){
-                        $password[]=$character;
-                    }
-                }
-            }
-            return $password;
-        }
+        
         if (isset($lunghezzaPassword)) {
             $newPassword = createPassword($arrayAllCharacter,$lunghezzaPassword);
         }
     
     ?>
     <div>
+        
         <?php
             if(isset($newPassword)){
+                ?><h1>La tua nuova password è:</h1><?php
                 echo implode(" ",$newPassword);
             }
         ?>
@@ -49,7 +40,7 @@
     <form action="index.php" method="GET">
         <label for="password">Lunghezza Password:</label>
         <input type="number" id="password" name="password">
-        <button>Genera Password</button>
+        <button>Crea Password</button>
     </form>
     
 </body>
