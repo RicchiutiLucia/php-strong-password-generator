@@ -2,15 +2,16 @@
 
 function createPassword($arrayAllCharacter,$lunghezzaPassword){
     $password=[];
+        $i = 0;
+        while ($i <= $lunghezzaPassword) {
+            $randomNumber=rand(0,count($arrayAllCharacter));
+    
+                if(!in_array($arrayAllCharacter[$randomNumber],$password) || $_GET['Repeate'] == 'Si'){
+                    $password[]=$arrayAllCharacter[$randomNumber];
+                    $i++;
+                }
+            
 
-    for($i = 0 ; $i < $lunghezzaPassword; $i++){
-        $randomNumber=rand(0,count($arrayAllCharacter));
-
-        foreach($arrayAllCharacter as $key => $character){
-            if($randomNumber==$key){
-                $password[]=$character;
-            }
         }
-    }
     return $password;
 }
