@@ -69,7 +69,7 @@
                     <label for="No">No</label><br>  
             </div>
             <div class="box">
-                <p>Che tipo di caratteri desideri includere:</p>
+                <p>Caratteri che puoi includere:</p>
                     <input type="checkbox" id="Lettere" name="Lettere" value="Lettere" checked>
                     <label for="Lettere"> Lettere</label><br>
                     <input type="checkbox" id="Numeri" name="Numeri" value="Numeri" checked>
