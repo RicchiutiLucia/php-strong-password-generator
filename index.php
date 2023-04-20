@@ -51,9 +51,11 @@
         <h3 id="title">Strong password generator</h3>
         <div id="control">
             <?php
-                $lunghezzaPassword ="";
-                if($lunghezzaPassword<=8 && $lunghezzaPassword>0 ){
-                    ?><h3 id="alert">La password deve essere maggiore di 8!</h3><?php
+                if(isset($_GET['passLang'])){
+                    $lunghezzaPassword = $_GET['passLang'];
+                    if($lunghezzaPassword<=8 && $lunghezzaPassword>0 ){
+                        ?><h3 id="alert">La password deve essere maggiore di 8!</h3><?php
+                    }
                 }
             ?>
         </div>
